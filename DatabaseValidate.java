@@ -1,4 +1,4 @@
-public void validatePP(String id) throws Exception
+public void validatePerformancePulse(String id) throws Exception
 {
 	stmt = con.createStatement();
 	String runReset = "SELECT * FROM leader_evaluation WHERE manager_token_id = " + id + " ORDER BY uid DESC LIMIT 1";
@@ -14,22 +14,17 @@ public void validatePP(String id) throws Exception
 	result = stmt.executeQuery(runReset);
 	this.con.commit();
 	Integer i = 0;
-  
+
 	while (result.next())
 	{
 		// Fetch values from DB to compare
 		String[] likert = {"Strongly Agree", "Strongly Agree", "Yes", "Yes"};
 		String option_text = result.getString("option_text");
-		if (option_text.equals(likert[i]))
-		{
-			System.out.println("Correct");
-		}
-		else
+		if (!(option_text.equals(likert[i])))
 		{
 			System.out.println("Error validating Performance Pulse");
 		}
 		i++;
 	}
-	
-	result.close(); 
+	result.close();
 }
