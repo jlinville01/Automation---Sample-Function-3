@@ -3,7 +3,7 @@
  *
  * @param id	the managers id
  */
-public void validateResponse(String id) throws Exception
+public void validateResponse(String id)
 {
 	try
 	{
