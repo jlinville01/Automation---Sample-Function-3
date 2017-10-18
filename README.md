@@ -1,2 +1,2 @@
-# Automation---Sample-Function-3
+# Database Validation
 This function was used to validate data against the database.
